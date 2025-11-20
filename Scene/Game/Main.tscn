@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk5n86n2p3tan"]
+
+[ext_resource type="Script" uid="uid://dijsorn2db3tl" path="res://Scene/Game/Script/Main.cs" id="1_qm6m7"]
+[ext_resource type="PackedScene" uid="uid://drdcn5x172564" path="res://Scene/Game/Snake.tscn" id="2_oqx76"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_qm6m7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.50000006, 0.8660254, 0, -0.8660254, -0.50000006, 0, 8, -4)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8, 0)
+top_level = true
+projection = 1
+fov = 60.0
+size = 12.0
+
+[node name="Snake" parent="Camera3D" instance=ExtResource("2_oqx76")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.496911e-07, -8)
