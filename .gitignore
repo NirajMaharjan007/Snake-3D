@@ -2,7 +2,7 @@
 .godot/
 .config/
 /android/
-.import/
+*.import
 
 # User-specific settings (optional)
 # You might want to ignore these if multiple developers are working on the project
