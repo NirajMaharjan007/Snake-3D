@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace Scene.Game.Script;
+namespace Snake3D.Scene.Game.Script;
 
 public partial class Main : Node3D
 {
