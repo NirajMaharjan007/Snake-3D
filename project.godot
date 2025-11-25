@@ -10,14 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Snake 3D"
+config/name="Snake3D"
 run/main_scene="uid://bk5n86n2p3tan"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="Snake 3D"
+project/assembly_name="Snake3D"
 
 [rendering]
 
