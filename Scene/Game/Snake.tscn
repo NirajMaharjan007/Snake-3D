@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://drdcn5x172564"]
+[gd_scene load_steps=5 format=3 uid="uid://drdcn5x172564"]
 
 [ext_resource type="Script" uid="uid://bc2ruhagwdbit" path="res://Scene/Game/Script/Snake.cs" id="1_523xi"]
 
@@ -9,10 +9,6 @@ material = SubResource("ShaderMaterial_523xi")
 
 [sub_resource type="Skin" id="Skin_523xi"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_523xi"]
-
-[sub_resource type="Skin" id="Skin_twb8m"]
-
 [node name="Snake" type="Node3D"]
 script = ExtResource("1_523xi")
 
@@ -20,8 +16,3 @@ script = ExtResource("1_523xi")
 gi_mode = 2
 mesh = SubResource("SphereMesh_d0mmt")
 skin = SubResource("Skin_523xi")
-
-[node name="Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-mesh = SubResource("SphereMesh_523xi")
-skin = SubResource("Skin_twb8m")
