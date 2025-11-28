@@ -1,4 +1,5 @@
 using Godot;
+using Snake3D.Misc;
 
 namespace Snake3D.Scene.Game.Script;
 
@@ -6,6 +7,8 @@ public partial class Snake : Node3D
 {
     [Export]
     public int SPEED = 1;
+
+    InputHandler handler;
 
     public override void _Ready()
     {

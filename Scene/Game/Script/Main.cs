@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 namespace Snake3D.Scene.Game.Script;
