@@ -22,14 +22,23 @@ public partial class Snake : CharacterBody3D
 
     private void DirectionHandler()
     {
-        directionSwitch = handler.CurrentDirection switch
+        // Only change direction if the new direction is not opposite of current
+        switch (handler.CurrentDirection)
         {
-            Direction.DOWN => 'd',
-            Direction.UP => 'u',
-            Direction.RIGHT => 'r',
-            Direction.LEFT => 'l',
-            _ => 'd',
-        };
+            case Direction.DOWN when directionSwitch != 'u':
+                directionSwitch = 'd';
+                break;
+            case Direction.UP when directionSwitch != 'd':
+                directionSwitch = 'u';
+                break;
+            case Direction.LEFT when directionSwitch != 'r':
+                directionSwitch = 'l';
+                break;
+            case Direction.RIGHT when directionSwitch != 'l':
+                directionSwitch = 'r';
+                break;
+            // Default - keep current directionSwitch value
+        }
     }
 
     private void UpdateDirection(double delta)
@@ -53,17 +62,22 @@ public partial class Snake : CharacterBody3D
              position += Transform.Basis.X * SPEED * (float)delta;
          } */
 
-        switch (directionSwitch)
+        // Assuming you have a CurrentDirection property
+        if (directionSwitch.Equals('u'))
         {
-            case 'u':
-                if (directionSwitch != 'd')
-                    position += Transform.Basis.Z * -SPEED * (float)delta;
-                break;
-
-            case 'd':
-                if (directionSwitch != 'u')
-                    position += Transform.Basis.Z * SPEED * (float)delta;
-                break;
+            position += Transform.Basis.Z * -SPEED * (float)delta;
+        }
+        else if (directionSwitch.Equals('d'))
+        {
+            position += Transform.Basis.Z * SPEED * (float)delta;
+        }
+        else if (directionSwitch.Equals('l'))
+        {
+            position += Transform.Basis.X * -SPEED * (float)delta;
+        }
+        else if (directionSwitch.Equals('r'))
+        {
+            position += Transform.Basis.X * SPEED * (float)delta;
         }
 
         Position = position;
