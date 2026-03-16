@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://drdcn5x172564"]
+
+[ext_resource type="Script" uid="uid://bc2ruhagwdbit" path="res://Scene/Game/Script/Snake.cs" id="1_523xi"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d0mmt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_523xi"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1871892177]
+script = ExtResource("1_523xi")
+SPEED = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1856492655]
+mesh = SubResource("SphereMesh_d0mmt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=94024689]
+shape = SubResource("SphereShape3D_523xi")
+debug_color = Color(0.6063351, 0.0004551244, 0.65022135, 0.41960785)
