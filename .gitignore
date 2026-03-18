@@ -1,3 +1,6 @@
+# Blender Folder ignores
+Blender/
+
 # Godot 4+ specific ignores
 .godot/
 .nomedia
