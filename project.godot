@@ -19,6 +19,17 @@ run/main_scene="uid://bk5n86n2p3tan"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1200
+window/size/viewport_height=900
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Snake3D"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
