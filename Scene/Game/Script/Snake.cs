@@ -43,8 +43,6 @@ public partial class Snake : CharacterBody3D
 
     private void UpdateDirection(double delta)
     {
-        var position = Position;
-
         /*  if (handler.CurrentDirection.Equals(Direction.UP))
          {
              position += Transform.Basis.Z * -SPEED * (float)delta;
@@ -62,25 +60,18 @@ public partial class Snake : CharacterBody3D
              position += Transform.Basis.X * SPEED * (float)delta;
          } */
 
-        // Assuming you have a CurrentDirection property
-        if (directionSwitch.Equals('u'))
-        {
-            position += Transform.Basis.Z * -SPEED * (float)delta;
-        }
-        else if (directionSwitch.Equals('d'))
-        {
-            position += Transform.Basis.Z * SPEED * (float)delta;
-        }
-        else if (directionSwitch.Equals('l'))
-        {
-            position += Transform.Basis.X * -SPEED * (float)delta;
-        }
-        else if (directionSwitch.Equals('r'))
-        {
-            position += Transform.Basis.X * SPEED * (float)delta;
-        }
+        Vector3 movement = Vector3.Zero;
 
-        Position = position;
+        if (directionSwitch.Equals('u'))
+            movement = -Transform.Basis.Z;
+        else if (directionSwitch.Equals('d'))
+            movement = Transform.Basis.Z;
+        else if (directionSwitch.Equals('l'))
+            movement = -Transform.Basis.X;
+        else if (directionSwitch.Equals('r'))
+            movement = Transform.Basis.X;
+
+        Position += movement * SPEED * (float)delta;
     }
 
     public override void _Process(double delta)
@@ -91,7 +82,6 @@ public partial class Snake : CharacterBody3D
         UpdateDirection(delta);
 
         MoveAndSlide();
-
         // Position += Transform.Basis.Z * 1.0f * (float)delta;
 
         GD.Print($"{Position} and {handler.CurrentDirection} and {directionSwitch}");

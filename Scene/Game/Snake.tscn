@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://drdcn5x172564"]
 
 [ext_resource type="Script" uid="uid://bc2ruhagwdbit" path="res://Scene/Game/Script/Snake.cs" id="1_523xi"]
+[ext_resource type="Texture2D" uid="uid://ik6kcviv32c2" path="res://Assets/Blender/textures/grass diffuse.jpg" id="2_twb8m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88rk3"]
+albedo_texture = ExtResource("2_twb8m")
 
 [sub_resource type="SphereMesh" id="SphereMesh_d0mmt"]
 
@@ -11,6 +15,7 @@ script = ExtResource("1_523xi")
 SPEED = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1856492655]
+material_override = SubResource("StandardMaterial3D_88rk3")
 mesh = SubResource("SphereMesh_d0mmt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=94024689]
