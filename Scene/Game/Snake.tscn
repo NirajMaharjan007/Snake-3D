@@ -12,7 +12,7 @@ albedo_texture = ExtResource("2_twb8m")
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1871892177]
 script = ExtResource("1_523xi")
-SPEED = 5
+SPEED = 20
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1856492655]
 material_override = SubResource("StandardMaterial3D_88rk3")

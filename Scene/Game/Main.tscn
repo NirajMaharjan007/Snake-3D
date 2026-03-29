@@ -13,12 +13,18 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=606828991]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 16, 8)
-top_level = true
+keep_aspect = 0
 doppler_tracking = 2
+fov = 60.0
 size = 25.0
+near = 1.0
 
 [node name="Snake" parent="." unique_id=2011211546 instance=ExtResource("2_oqx76")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.1920929e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42, 0)
+top_level = true
+disable_mode = 2
+floor_constant_speed = true
+SPEED = 10
 
 [node name="Level" parent="." unique_id=877036455 instance=ExtResource("2_gho4p")]
 transform = Transform3D(1, 2.9802322e-08, 1.4901161e-08, 0, 1, 0, 1.4901161e-08, 2.9802322e-08, 1, -3.8146973e-06, 0, -3.8146973e-06)

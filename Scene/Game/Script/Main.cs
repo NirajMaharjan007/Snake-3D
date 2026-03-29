@@ -23,7 +23,7 @@ public partial class Main : Node3D
         base._Process(delta);
 
         GD.Print($"Snake {snake.GlobalPosition}");
-        OutOfBound();
+        // OutOfBound();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -35,19 +35,12 @@ public partial class Main : Node3D
 
     private void OutOfBound()
     {
-        float x = snake.GlobalPosition.X;
-        float y = snake.GlobalPosition.Y;
-        float z = snake.GlobalPosition.Z;
+        var min_limit = new Vector3(-10, 5, -10);
+        var max_limit = new Vector3(10, 20, 10);
 
-        if (x <= -18)
-            x = 18;
-        else if (x >= 18)
-            x = -18;
-
-        if (z >= 14)
-            z = -14;
-        else if (z <= -14)
-            z = 14;
+        float x = Mathf.Clamp(GlobalPosition.X, min_limit.X, max_limit.X);
+        float y = Mathf.Clamp(GlobalPosition.Y, min_limit.Y, max_limit.Y);
+        float z = Mathf.Clamp(GlobalPosition.Z, min_limit.Z, max_limit.Z);
 
         snake.GlobalPosition = new(x, y, z);
     }
