@@ -3,7 +3,7 @@ using Snake3D.Misc;
 
 namespace Snake3D.Scene.Game.Script;
 
-public partial class Snake : CharacterBody3D
+public partial class Snake : Node3D
 {
     public const int SPEED = 64;
 
@@ -13,10 +13,15 @@ public partial class Snake : CharacterBody3D
 
     private char directionSwitch = 'd';
 
+    private MeshInstance3D snakeHead;
+
     public override void _Ready()
     {
         base._Ready();
         AddChild(handler);
+
+        // snake = GetNode<Node3D>("Snake");
+        // snakeHead = snake.GetNode<MeshInstance3D>("Snake Head");
     }
 
     private void DirectionHandler()
@@ -40,52 +45,12 @@ public partial class Snake : CharacterBody3D
         }
     }
 
-    private void UpdateDirection(double delta)
-    {
-        /*  if (handler.CurrentDirection.Equals(Direction.UP))
-        {
-            position += Transform.Basis.Z * -SPEED * (float)delta;
-        }
-        else if (handler.CurrentDirection.Equals(Direction.DOWN))
-        {
-            position += Transform.Basis.Z * SPEED * (float)delta;
-        }
-        else if (handler.CurrentDirection.Equals(Direction.LEFT))
-        {
-            position += Transform.Basis.X * -SPEED * (float)delta;
-        }
-        else if (handler.CurrentDirection.Equals(Direction.RIGHT))
-        {
-            position += Transform.Basis.X * SPEED * (float)delta;
-        } */
-
-        Vector3 velocity = Velocity;
-
-        if (!IsOnFloor())
-            velocity.Y -= 9.8f * (float)delta;
-
-        if (directionSwitch.Equals('u'))
-            velocity = -Transform.Basis.Z * SPEED * (float)delta;
-        else if (directionSwitch.Equals('d'))
-            velocity = Transform.Basis.Z * SPEED * (float)delta;
-        else if (directionSwitch.Equals('l'))
-            velocity = -Transform.Basis.X * SPEED * (float)delta;
-        else if (directionSwitch.Equals('r'))
-            velocity = Transform.Basis.X * SPEED * (float)delta;
-
-        Velocity = velocity;
-        MoveAndSlide();
-    }
+    private void UpdateDirection(double delta) { }
 
     public override void _Process(double delta)
     {
         base._Process(delta);
-
         DirectionHandler();
-        UpdateDirection(delta);
-
-        MoveAndSlide();
-        // Position += Transform.Basis.Z * 1.0f * (float)delta;
 
         GD.Print($"{Position} and {handler.CurrentDirection} and {directionSwitch} SPEED {SPEED}");
     }
@@ -93,5 +58,7 @@ public partial class Snake : CharacterBody3D
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
+        UpdateDirection(delta);
+        GD.PrintRich($"[b]snake-head {snakeHead}[/b]");
     }
 }

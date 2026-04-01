@@ -6,7 +6,7 @@ public partial class Main : Node3D
 {
     Camera3D camera;
 
-    CharacterBody3D snake;
+    Node3D snake;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -14,7 +14,7 @@ public partial class Main : Node3D
         base._Ready();
 
         camera = GetNode<Camera3D>("Camera3D");
-        snake = GetNode<CharacterBody3D>("Snake");
+        snake = GetNode<Node3D>("Snake");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
