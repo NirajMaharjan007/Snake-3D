@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvhsbfvqjfudb"]
 
 [ext_resource type="Texture2D" uid="uid://d3fgfyqolldqm" path="res://Assets/Resources/GroundGrass/GroundGrass_PX_Ground_Grass_01_albedo.jpg" id="1_gho4p"]
+[ext_resource type="Script" uid="uid://bg0ijtboav4i6" path="res://Scene/Game/Script/Main.cs" id="1_qm6m7"]
 [ext_resource type="Texture2D" uid="uid://l7ryi0d2bjij" path="res://Assets/Resources/GroundGrass/GroundGrass_PX_Ground_Grass_01_normal.jpg" id="2_n8gv1"]
 [ext_resource type="PackedScene" uid="uid://drdcn5x172564" path="res://Scene/Game/Snake.tscn" id="2_oqx76"]
 
@@ -48,7 +49,7 @@ _shader_parameters = {
 &"world_space_normal_blend": true
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywmdk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gho4p"]
 transparency = 4
 cull_mode = 2
 vertex_color_use_as_albedo = true
@@ -58,10 +59,10 @@ distance_fade_mode = 1
 distance_fade_min_distance = 128.0
 distance_fade_max_distance = 96.0
 
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_qm6m7"]
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_n8gv1"]
 generated_type = 1
 height_offset = 0.5
-material_override = SubResource("StandardMaterial3D_ywmdk")
+material_override = SubResource("StandardMaterial3D_gho4p")
 last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
@@ -72,7 +73,7 @@ albedo_texture = ExtResource("1_gho4p")
 normal_texture = ExtResource("2_n8gv1")
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_ay4xc"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_qm6m7")])
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_n8gv1")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_a4y2n")])
 
 [node name="Main" type="Terrain3D" unique_id=418010489]
@@ -80,13 +81,14 @@ data_directory = "res://Assets/Terrain"
 material = SubResource("Terrain3DMaterial_gho4p")
 assets = SubResource("Terrain3DAssets_ay4xc")
 top_level = true
+script = ExtResource("1_qm6m7")
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=906365624]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 50, 0)
 
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2009604489]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.70710677, 0, -0.70710677, 0.7071068, 0, 9.999996, 7.999999)
+
 [node name="Snake" parent="." unique_id=645301271 instance=ExtResource("2_oqx76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2009604489]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 10, 8)

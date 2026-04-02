@@ -21,9 +21,6 @@ public partial class Main : Node3D
     public override void _Process(double delta)
     {
         base._Process(delta);
-
-        GD.Print($"Snake {snake.GlobalPosition}");
-        // OutOfBound();
     }
 
     public override void _PhysicsProcess(double delta)
