@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Snake3D"
-run/main_scene="uid://bk5n86n2p3tan"
+run/main_scene="uid://bvhsbfvqjfudb"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
