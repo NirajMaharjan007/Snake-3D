@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://bvhsbfvqjfudb"]
 
+[ext_resource type="Texture2D" uid="uid://d3fgfyqolldqm" path="res://Assets/Resources/GroundGrass/GroundGrass_PX_Ground_Grass_01_albedo.jpg" id="1_gho4p"]
+[ext_resource type="Texture2D" uid="uid://l7ryi0d2bjij" path="res://Assets/Resources/GroundGrass/GroundGrass_PX_Ground_Grass_01_normal.jpg" id="2_n8gv1"]
+[ext_resource type="PackedScene" uid="uid://drdcn5x172564" path="res://Scene/Game/Snake.tscn" id="2_oqx76"]
+
 [sub_resource type="Gradient" id="Gradient_ywmdk"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -43,7 +47,6 @@ _shader_parameters = {
 &"projection_threshold": 0.8,
 &"world_space_normal_blend": true
 }
-show_checkered = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywmdk"]
 transparency = 4
@@ -63,13 +66,27 @@ last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
 
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_a4y2n"]
+name = ""
+albedo_texture = ExtResource("1_gho4p")
+normal_texture = ExtResource("2_n8gv1")
+
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_ay4xc"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_qm6m7")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_a4y2n")])
 
 [node name="Main" type="Terrain3D" unique_id=418010489]
 data_directory = "res://Assets/Terrain"
 material = SubResource("Terrain3DMaterial_gho4p")
 assets = SubResource("Terrain3DAssets_ay4xc")
-show_checkered = true
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=906365624]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 50, 0)
+
+[node name="Snake" parent="." unique_id=645301271 instance=ExtResource("2_oqx76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2009604489]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 10, 8)
